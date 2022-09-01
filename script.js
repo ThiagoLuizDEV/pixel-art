@@ -1,4 +1,6 @@
+
 // 1 )
+
 const elementoH1 = document.createElement('h1');
 elementoH1.id = 'title';
 elementoH1.innerText = "Paleta de Cores";
@@ -45,7 +47,7 @@ paletaDeCores4.style.display = 'inline-block';
 paletaDeCores4.style.backgroundColor = 'red';
 paletaDeCoresMain.appendChild(paletaDeCores4);
 
-// 4)
+//4
 const botao = document.createElement('button');
 botao.id = 'button-random-color';
 botao.innerText = 'Cores aleatórias'
@@ -55,6 +57,8 @@ function numAleatorio(number) {
     return Math.floor(Math.random() * (number+1));
   }
   
+
+  //4
   function corBackGroundColor() {
     const corAleatoria = `rgb(${numAleatorio(255)}, ${numAleatorio(255)}, ${numAleatorio(255)})`; 
     const corAleatoria2 = `rgb(${numAleatorio(255)}, ${numAleatorio(255)}, ${numAleatorio(255)})`; 
@@ -62,7 +66,50 @@ function numAleatorio(number) {
     paletaDeCores2.style.backgroundColor = corAleatoria;
     paletaDeCores3.style.backgroundColor = corAleatoria2;
     paletaDeCores4.style.backgroundColor = corAleatoria3;
-
+    local(corAleatoria, corAleatoria2, corAleatoria3)
   }
-  
   botao.addEventListener('click', corBackGroundColor);
+
+  //5 Link que usei para me ajudar no requisito (https://josiaspereira.com.br/como-usar-localstorage-no-reactjs/)
+  function local(param, param2, param3){
+    localStorage.setItem('colorPalette', JSON.stringify({
+    corAleatoria: param,
+    corAleatoria2: param2,
+    corAleatoria3: param3,
+  }) );
+  paletaDeCores2.style.backgroundColor = param;
+  paletaDeCores3.style.backgroundColor = param2;
+  paletaDeCores4.style.backgroundColor = param3;
+  }
+
+
+  const pegandoLocal1 = JSON.parse(localStorage.getItem('colorPalette'))
+  
+//   function test(){
+//   local(pegandoLocal1.corAleatoria, pegandoLocal1.corAleatoria2, pegandoLocal1.corAleatoria3);
+// }
+//   test()
+
+//6
+
+   const pixelsMain = document.createElement('div');
+   pixelsMain.id = 'pixel-board';
+   document.body.appendChild(pixelsMain);
+  for (let index = 0; index < 5; index += 1 ){
+    const pixelsFilhos = document.createElement('div');
+    pixelsMain.appendChild(pixelsFilhos);
+    for (let index = 0; index < 5; index += 1 ){
+      const pixelsFilhos1 = document.createElement('div');
+      pixelsFilhos1.className = 'pixel';
+      pixelsFilhos1.style.border = '1px solid black';
+      pixelsFilhos1.style.height = '40px';
+      pixelsFilhos1.style.width = '40px'
+      pixelsFilhos1.style.display = 'inline-block';
+      pixelsFilhos1.style.marginBottom = '-5px'
+      pixelsFilhos1.style.backgroundColor = 'white'
+      
+      pixelsMain.appendChild(pixelsFilhos1);
+  }
+}
+
+  
