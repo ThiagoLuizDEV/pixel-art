@@ -12,7 +12,7 @@ paletaDeCoresMain.id = 'color-palette';
 document.body.appendChild(paletaDeCoresMain);
 
 let paletaDeCores1 = document.createElement('div');
-paletaDeCores1.className = 'color';
+paletaDeCores1.className = 'color selected';
 paletaDeCores1.style.border = 'black solid 1px';
 paletaDeCores1.style.height = '25px';
 paletaDeCores1.style.width = '25px';
@@ -90,8 +90,8 @@ function numAleatorio(number) {
 // }
 //   test()
 
-//6
 
+//6 | 7
    const pixelsMain = document.createElement('div');
    pixelsMain.id = 'pixel-board';
    document.body.appendChild(pixelsMain);
@@ -111,5 +111,7 @@ function numAleatorio(number) {
       pixelsMain.appendChild(pixelsFilhos1);
   }
 }
+
+
 
   
