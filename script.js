@@ -21,7 +21,7 @@ paletaDeCores1.style.backgroundColor = 'black';
 paletaDeCoresMain.appendChild(paletaDeCores1);
 
 let paletaDeCores2 = document.createElement('div');
-paletaDeCores2.className = 'color';
+paletaDeCores2.className = 'color ';
 paletaDeCores2.style.border = 'black solid 1px';
 paletaDeCores2.style.height = '25px';
 paletaDeCores2.style.width = '25px';
@@ -30,7 +30,7 @@ paletaDeCores2.style.backgroundColor = 'blue';
 paletaDeCoresMain.appendChild(paletaDeCores2);
 
 let paletaDeCores3 = document.createElement('div');
-paletaDeCores3.className = 'color';
+paletaDeCores3.className = 'color ';
 paletaDeCores3.style.border = 'black solid 1px';
 paletaDeCores3.style.height = '25px';
 paletaDeCores3.style.width = '25px';
@@ -39,7 +39,7 @@ paletaDeCores3.style.backgroundColor = 'pink';
 paletaDeCoresMain.appendChild(paletaDeCores3);
 
 let paletaDeCores4 = document.createElement('div');
-paletaDeCores4.className = 'color';
+paletaDeCores4.className = 'color ';
 paletaDeCores4.style.border = 'black solid 1px';
 paletaDeCores4.style.height = '25px';
 paletaDeCores4.style.width = '25px';
@@ -47,12 +47,33 @@ paletaDeCores4.style.display = 'inline-block';
 paletaDeCores4.style.backgroundColor = 'red';
 paletaDeCoresMain.appendChild(paletaDeCores4);
 
+
+
+//11
+const botaoDiv = document.createElement('div')
+const pixelsFilhos2 = document.getElementsByClassName('pixel')
+const botaoBranco = document.createElement('button');
+botaoBranco.id = 'clear-board';
+botaoBranco.innerText = 'Limpar';
+paletaDeCoresMain.appendChild(botaoDiv);
+botaoDiv.appendChild(botaoBranco)
+
+
+
+botaoBranco.addEventListener('click',function(){
+  for(let index = 0; index < pixelsFilhos2.length; index += 1){
+  pixelsFilhos2[index].style.backgroundColor = 'white'
+  }
+
+
+});
+
 //4
 const botao = document.createElement('button');
 botao.id = 'button-random-color';
 botao.innerText = 'Cores aleatórias'
-paletaDeCoresMain.appendChild(botao);
-
+elementoH1.appendChild(botao);
+botao.style.display = 'block'
 function numAleatorio(number) {
     return Math.floor(Math.random() * (number+1));
   }
@@ -70,7 +91,7 @@ function numAleatorio(number) {
   }
   botao.addEventListener('click', corBackGroundColor);
 
-  //5 Link que usei para me ajudar no requisito (https://josiaspereira.com.br/como-usar-localstorage-no-reactjs/)
+  //5 
   function local(param, param2, param3){
     localStorage.setItem('colorPalette', JSON.stringify({
     corAleatoria: param,
@@ -82,14 +103,17 @@ function numAleatorio(number) {
   paletaDeCores4.style.backgroundColor = param3;
   }
 
+window.onload = function (){
+ const pegandoLocal1 = localStorage.getItem('colorPalette');
+const pegandoLocal2 = JSON.parse(pegandoLocal1);
+if (pegandoLocal2 != null){
+  paletaDeCores2.style.backgroundColor = pegandoLocal2.corAleatoria;
+  paletaDeCores3.style.backgroundColor = pegandoLocal2.corAleatoria2;
+  paletaDeCores4.style.backgroundColor = pegandoLocal2.corAleatoria3;
 
-  const pegandoLocal1 = JSON.parse(localStorage.getItem('colorPalette'))
-  
-//   function test(){
-//   local(pegandoLocal1.corAleatoria, pegandoLocal1.corAleatoria2, pegandoLocal1.corAleatoria3);
-// }
-//   test()
-
+}
+}
+ 
 
 //6 | 7
    const pixelsMain = document.createElement('div');
@@ -113,5 +137,14 @@ function numAleatorio(number) {
 }
 
 
+let selecionarCor= document.getElementsByClassName('selected');
 
-  
+addEventListener('click', function(event){
+
+})
+
+
+
+
+
+
