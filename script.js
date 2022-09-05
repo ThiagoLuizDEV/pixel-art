@@ -135,15 +135,18 @@ if (pegandoLocal2 != null){
       pixelsMain.appendChild(pixelsFilhos1);
   }
 }
+// 9 
+function selecionarCor(seleciona){
+let selecionar = seleciona.target;
+let percorreSelected = document.querySelector('.selected');
+percorreSelected.classList.remove("selected");
+selecionar.classList.add("selected");
+}
 
-
-let selecionarCor= document.getElementsByClassName('selected');
-
-addEventListener('click', function(event){
-
-})
-
-
+const selecionarCor1 = document.getElementsByClassName('color');
+for( let index = 0; index < selecionarCor1.length; index +=1){
+  selecionarCor1[index].addEventListener('click', selecionarCor);
+}
 
 
 
