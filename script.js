@@ -55,7 +55,7 @@ const pixelsFilhos2 = document.getElementsByClassName('pixel')
 const botaoBranco = document.createElement('button');
 botaoBranco.id = 'clear-board';
 botaoBranco.innerText = 'Limpar';
-paletaDeCoresMain.appendChild(botaoDiv);
+document.body.appendChild(botaoDiv);
 botaoDiv.appendChild(botaoBranco)
 
 
@@ -149,5 +149,22 @@ for( let index = 0; index < selecionarCor1.length; index +=1){
 }
 
 
+//10
+//pegar a cor do elemento que tem class selected e adicionar no quadrado que estiver clicando no meu pixel-board
 
 
+const selecionarPixels = document.getElementsByClassName('pixel')
+const selecionarCor2 = document.querySelectorAll('.color');
+const pixelBoard = document.getElementById('pixel-board')
+let recebeCor;
+
+pixelBoard.addEventListener('click',function(event) {
+    for(let index1 = 0; index1 < selecionarCor2.length; index1 += 1){
+      if(selecionarCor2[index1].classList.contains('selected')){
+        recebeCor = selecionarCor2[index1].style.backgroundColor;
+      }
+      event.target.style.backgroundColor = recebeCor
+    }
+  
+  });
+  
